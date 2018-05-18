@@ -64,16 +64,19 @@ module.exports = {
       {
         test: /\.jsx?$/,
         include: [ path.resolve(__dirname, 'lib/gui') ],
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [ 'react', 'env', 'stage-0' ]
+            presets: [ 'react', 'env', 'stage-0' ],
+            cacheDirectory: true
           }
         }
       },
       {
         test: /\.html$/,
         include: [ path.resolve(__dirname, 'lib/gui/app') ],
+        exclude: /node_modules/,
         use: {
           loader: 'html-loader'
         }
